@@ -17,7 +17,7 @@ public class StudentApi {
         return "Student saved";
     }
 
-   @PostMapping(value = {"/{id}"}) // This is used to get the data from the URL (mapping ekata enna one path varibal ekak)
+   @PostMapping(value = {"/{id:^STU-[0-9]{3}$}"}) // This is used to get the data from the URL (mapping ekata enna one path varibal ekak)
     public String pathVariable(@PathVariable String id){ // PathVariable is used to get the data from the URL
        System.out.println(id);
         return "Path variable ok";

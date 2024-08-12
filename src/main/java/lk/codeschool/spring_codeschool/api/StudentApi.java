@@ -25,7 +25,7 @@ public class StudentApi {
     }
 
 
-    @PostMapping(value = "/json",consumes = "application/json")
+    @PostMapping(value = "/json",consumes = "application/json") //consumes kiyanne balanne header wala contend type eke application jasonda kiyala
     public String json(){
         return "Json ok";
     }

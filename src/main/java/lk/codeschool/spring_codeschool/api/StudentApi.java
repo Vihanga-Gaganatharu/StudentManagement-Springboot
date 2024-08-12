@@ -17,9 +17,17 @@ public class StudentApi {
         return "Student saved";
     }
 
-   @PostMapping(value = {"/{id:^STU-[0-9]{3}$}"}) // This is used to get the data from the URL (mapping ekata enna one path varibal ekak)
-    public String pathVariable(@PathVariable String id){ // PathVariable is used to get the data from the URL
+   @PostMapping(value = {"/{id:^STU-[0-9]{3}$}/{name}"}) // This is used to get the data from the URL (mapping ekata enna one path varibal ekak)
+    public String pathVariable(@PathVariable String id,@PathVariable String name){ // PathVariable is used to get the data from the URL
        System.out.println(id);
+       System.out.println(name);
         return "Path variable ok";
     }
+
+
+    @PostMapping(value = "/json",consumes = "application/json")
+    public String json(){
+        return "Json ok";
+    }
+
 }

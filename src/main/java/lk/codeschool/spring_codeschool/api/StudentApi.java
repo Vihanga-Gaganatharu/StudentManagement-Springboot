@@ -69,11 +69,23 @@ public class StudentApi {
         System.out.println("IMG Type :"+type);
         System.out.println("----------------------------------------");
 
+
+//        System.out.println("----------------------------------------");
+//        System.out.println();
+//        String property = System.getProperty("user.home");
+//        System.out.println("----------------------------------------");
+
+
         System.out.println("----------------------------------------");
         System.out.println(" byte Array length :"+array.length);
         System.out.println("----------------------------------------");
 
-        exportByteArraytoFile(array,"uploards/test."+type);
+
+
+
+//        exportByteArraytoFile(array,"/uploards/test."+type);
+
+
 
 
         return "Form data handled";

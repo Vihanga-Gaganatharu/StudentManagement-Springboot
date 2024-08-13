@@ -12,8 +12,8 @@ public class EmployeeApi {
 
     private EmployeeService service;
 
-    public EmployeeApi(@Qualifier("employeeService") EmployeeService service) {
-        this.service = service;
+    public EmployeeApi( EmployeeService employeeService) {
+        this.service = employeeService;
     }
 
     @PostMapping(value = "/save")

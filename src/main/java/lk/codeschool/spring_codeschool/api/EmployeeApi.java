@@ -6,6 +6,8 @@ import lk.codeschool.spring_codeschool.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/employee")
 public class EmployeeApi {
@@ -18,7 +20,7 @@ public class EmployeeApi {
 
     @PostMapping(value = "/save")
     public void saveEmployee(@RequestBody EmployeeDTO obj) {  //save employee
-//        System.out.println("Employee saved"+obj);
+        System.out.println("Employee saved"+obj);
         service.saveEmployee(obj);  // service eke saveEmployee method eka call karala thiyenne
 
     }
@@ -26,14 +28,17 @@ public class EmployeeApi {
 
     @PostMapping(value = "/update")
     public void updateEmployee(@RequestBody EmployeeDTO obj) {  //update employee
-//        System.out.println("Employee updated" + obj);
+
         service.updateEmployee(obj); // service eke updateEmployee method eka call karala thiyenne
+        System.out.println("Employee updated" + obj);
     }
 
 
     @GetMapping(value = "/get/{id}")  //serch employee
     public EmployeeDTO search(String id) {
+        System.out.println("Employee Search" + id);
         return service.search(id); // service eke search method eka call karala thiyenne
+
     }
 
 

@@ -1,7 +1,10 @@
 package lk.codeschool.spring_codeschool.api;
 
 
+import lk.codeschool.spring_codeschool.dto.Student;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/student")
@@ -26,8 +29,27 @@ public class StudentApi {
 
 
     @PostMapping(value = "/json",consumes = "application/json") //consumes kiyanne balanne header wala contend type eke application jasonda kiyala
-    public String json(){
+    public String json(@RequestBody Student student){
+        System.out.println("Id: "+student.getId());
+        System.out.println("Name: "+student.getName());
+        System.out.println("Age: "+student.getAge());
         return "Json ok";
     }
 
+
+    //arrya ekak hadala eken data yawanna
+
+    @PostMapping(value = "/jsonList", consumes = "application/json")
+    public String catchJsonArray(@RequestBody List<Student> List) {
+        for (Student student : List) {
+            System.out.println("----------------------------------------");
+            System.out.println("Id: " + student.getId());
+            System.out.println("Name: " + student.getName());
+            System.out.println("Age: " + student.getAge());
+
+            System.out.println("----------------------------------------");
+        }
+        return "Json list ok";
+    }
 }
+

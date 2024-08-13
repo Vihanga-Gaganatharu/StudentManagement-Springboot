@@ -2,6 +2,7 @@ package lk.codeschool.spring_codeschool.api;
 
 
 import lk.codeschool.spring_codeschool.dto.Student;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -51,5 +52,29 @@ public class StudentApi {
         }
         return "Json list ok";
     }
+
+    @PostMapping(value = "/formData", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public String handleFormData(@RequestPart(value = "test" , required = false) String id ,
+                                 @RequestPart(value = "img")byte[] array,
+                                 @RequestPart(value = "ext")String type) { // RequestPart is used to get the data from the form data   // Reqired false dammata passe eka awashyama naa defult enen true
+
+        System.out.println("----------------------------------------");
+        System.out.println("Student ID :"+id);
+        System.out.println("----------------------------------------");
+
+        System.out.println("----------------------------------------");
+        System.out.println("IMG Type :"+type);
+        System.out.println("----------------------------------------");
+
+        System.out.println("----------------------------------------");
+        System.out.println(" byte Array length :"+array.length);
+        System.out.println("----------------------------------------");
+
+
+        return "Form data handled";
+    }
+
+
+
 }
 

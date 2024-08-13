@@ -5,6 +5,8 @@ import lk.codeschool.spring_codeschool.dto.Student;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -58,6 +60,7 @@ public class StudentApi {
                                  @RequestPart(value = "img")byte[] array,
                                  @RequestPart(value = "ext")String type) { // RequestPart is used to get the data from the form data   // Reqired false dammata passe eka awashyama naa defult enen true
 
+
         System.out.println("----------------------------------------");
         System.out.println("Student ID :"+id);
         System.out.println("----------------------------------------");
@@ -70,9 +73,21 @@ public class StudentApi {
         System.out.println(" byte Array length :"+array.length);
         System.out.println("----------------------------------------");
 
+        exportByteArraytoFile(array,"uploards/test."+type);
+
 
         return "Form data handled";
     }
+
+
+    public static void exportByteArraytoFile(byte[] byteArray, String fileName) {
+        try (FileOutputStream fos = new FileOutputStream(fileName)) {
+            fos.write(byteArray);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
 
 

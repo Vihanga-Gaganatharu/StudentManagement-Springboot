@@ -2,15 +2,24 @@ package lk.codeschool.spring_codeschool.api;
 
 
 import lk.codeschool.spring_codeschool.dto.EmployeeDTO;
+import lk.codeschool.spring_codeschool.service.EmployeeService;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/employee")
 public class EmployeeApi {
 
+    private EmployeeService service;
+
+    public EmployeeApi(@Qualifier("employeeService") EmployeeService service) {
+        this.service = service;
+    }
+
     @PostMapping(value = "/save")
     public void saveEmployee(@RequestBody EmployeeDTO obj) {  //save employee
         System.out.println("Employee saved"+obj);
+
     }
 
 

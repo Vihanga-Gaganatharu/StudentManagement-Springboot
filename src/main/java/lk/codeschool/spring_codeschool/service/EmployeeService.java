@@ -6,8 +6,8 @@ import org.springframework.stereotype.Service;
 
 @Service
 public interface EmployeeService {
-    void saveEmployee(EmployeeDTO obj);
-    void updateEmployee(EmployeeDTO obj);
-    EmployeeDTO search(String id);
-    void deleteEmployee(String id);
+    public void saveEmployee(EmployeeDTO obj);
+    public void updateEmployee(EmployeeDTO obj);
+    public EmployeeDTO search(String id);
+    public void deleteEmployee(String id);
 }

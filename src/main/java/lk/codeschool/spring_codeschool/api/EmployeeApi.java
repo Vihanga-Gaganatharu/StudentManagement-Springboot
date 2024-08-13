@@ -18,28 +18,31 @@ public class EmployeeApi {
 
     @PostMapping(value = "/save")
     public void saveEmployee(@RequestBody EmployeeDTO obj) {  //save employee
-        System.out.println("Employee saved"+obj);
+//        System.out.println("Employee saved"+obj);
+        service.saveEmployee(obj);  // service eke saveEmployee method eka call karala thiyenne
 
     }
 
 
     @PostMapping(value = "/update")
     public void updateEmployee(@RequestBody EmployeeDTO obj) {  //update employee
-        System.out.println("Employee updated" + obj);
+//        System.out.println("Employee updated" + obj);
+        service.updateEmployee(obj); // service eke updateEmployee method eka call karala thiyenne
     }
 
 
-    @GetMapping(value = "/get/{id:EMP-[\\d]{3}$}")  //serch employee
+    @GetMapping(value = "/get/{id}")  //serch employee
     public EmployeeDTO search(String id) {
-        return new EmployeeDTO(id,"Kamal",23,"kamal2@gmail.com");
-
+        return service.search(id); // service eke search method eka call karala thiyenne
     }
 
 
     @DeleteMapping(value = "/delete/{id:EMP-[\\d]{3}$}")  //delete emp
 
     public void deleteEmployee(@PathVariable String id) {
-        System.out.println("Employee deleted"+id);
+
+        service.deleteEmployee(id); // service eke deleteEmployee method eka call karala thiyenne
+//        System.out.println("Employee deleted"+id);
 
     }
 
